@@ -1,7 +1,7 @@
 <?php
-include_once "stringanalytics.php";
+include_once __DIR__."/stringanalytics.php";
 function getTagSynonymsArray(){
-	$tagSynonymstxt = file_get_contents("tags/reliefboard.txt");
+	$tagSynonymstxt = file_get_contents(dirname(__DIR__)."/tags/reliefboard.txt");
 	$tagSynonymsarr = explode("\n", $tagSynonymstxt);
 	$tagCount = sizeof($tagSynonymsarr);
 	for($i=0;$i<$tagCount;$i++){
@@ -11,7 +11,7 @@ function getTagSynonymsArray(){
 }
 
 function getStopWords() {
-	$stopWordsTxt = file_get_contents("stopwords/stopwords_en.txt");
+	$stopWordsTxt = file_get_contents(dirname(__DIR__)."/stopwords/stopwords_en.txt");
 	return array_map("rtrim", explode("\n",strval($stopWordsTxt)));
 }
 
